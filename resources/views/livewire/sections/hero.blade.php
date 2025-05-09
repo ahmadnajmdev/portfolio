@@ -8,62 +8,40 @@
             <div class="min-h-screen flex items-center py-32">
                 <div class="w-full max-w-4xl">
                     <div class="flex flex-col space-y-6">
-                        <span class="text-primary font-semibold tracking-wider uppercase text-sm">Full-Stack
-                            Developer</span>
+                        <span class="text-primary font-semibold tracking-wider uppercase text-sm">{{ $hero->subtitle }}</span>
                         <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
-                            Crafting Digital <br>
-                            <span class="text-primary">Experiences</span> That <br>
-                            Make an Impact
+                            {!! $hero->title !!}
                         </h1>
                         <p class="text-xl text-gray-600 max-w-2xl leading-relaxed">
-                            I specialize in building exceptional digital solutions that merge elegant design with
-                            powerful functionality. Let's transform your ideas into reality.
+                            {{ $hero->content }}
                         </p>
                         <div class="flex flex-wrap gap-4 mt-4">
                             <a href="#projects"
                                 class="group bg-primary hover:bg-primary/90 text-white px-8 py-4 !rounded-button font-medium transition-all duration-300 whitespace-nowrap flex items-center justify-center">
-                                <span>View My Work</span>
-                                <i
-                                    class="ri-arrow-right-line ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                                <span>{{ $hero->meta['cta_primary'] }}</span>
+                                <i class="ri-arrow-right-line ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                             </a>
                             <a href="#contact"
                                 class="group bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 !rounded-button font-medium transition-all duration-300 whitespace-nowrap flex items-center justify-center border-2 border-gray-200">
                                 <i class="ri-mail-line mr-2"></i>
-                                <span>Let's Connect</span>
+                                <span>{{ $hero->meta['cta_secondary'] }}</span>
                             </a>
                         </div>
+                        @if(isset($hero->meta['stats']))
                         <div class="flex items-center gap-8 mt-12 pt-8 border-t border-gray-200">
+                            @foreach($hero->meta['stats'] as $stat)
                             <div class="flex items-center gap-2">
-                                <div
-                                    class="w-12 h-12 flex items-center justify-center bg-blue-100 text-blue-600 rounded-full">
-                                    <i class="ri-code-box-line ri-lg"></i>
+                                <div class="w-12 h-12 flex items-center justify-center {{ $stat['bg_color'] }} {{ $stat['text_color'] }} rounded-full">
+                                    <i class="{{ $stat['icon'] }} ri-lg"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-gray-900">300+</div>
-                                    <div class="text-sm text-gray-600">Projects Completed</div>
+                                    <div class="font-semibold text-gray-900">{{ $stat['value'] }}</div>
+                                    <div class="text-sm text-gray-600">{{ $stat['label'] }}</div>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <div
-                                    class="w-12 h-12 flex items-center justify-center bg-green-100 text-green-600 rounded-full">
-                                    <i class="ri-user-star-line ri-lg"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-gray-900">150+</div>
-                                    <div class="text-sm text-gray-600">Happy Clients</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <div
-                                    class="w-12 h-12 flex items-center justify-center bg-purple-100 text-purple-600 rounded-full">
-                                    <i class="ri-award-line ri-lg"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-gray-900">8+ Years</div>
-                                    <div class="text-sm text-gray-600">Experience</div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

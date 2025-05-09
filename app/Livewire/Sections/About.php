@@ -2,12 +2,20 @@
 
 namespace App\Livewire\Sections;
 
+use App\Models\Experience;
+use App\Models\Section;
 use Livewire\Component;
 
 class About extends Component
 {
     public function render()
     {
-        return view('livewire.sections.about');
+        $section = Section::where('name', 'about')->first();
+        $experiences = Experience::orderBy('start_date', 'desc')->get();
+
+        return view('livewire.sections.about', [
+            'section' => $section,
+            'experiences' => $experiences
+        ]);
     }
 }
