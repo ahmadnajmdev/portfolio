@@ -14,7 +14,7 @@
                 <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1"
                     data-category="{{ $project->category }}">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="{{ $project->image_url }}"
+                        <img src="{{ Storage::url($project->image_url )}}"
                             alt="{{ $project->title }}" class="w-full h-full object-cover object-top">
                         <div
                             class="project-overlay absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 transition-opacity">
