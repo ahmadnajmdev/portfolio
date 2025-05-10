@@ -8,10 +8,10 @@
                     {{ $section->subtitle }}
                 </p>
             </div>
-            <div class="flex flex-col md:flex-row gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 <!-- Skills by Category -->
                 @foreach($skills as $category => $categorySkills)
-                <div class="w-full md:w-1/2">
+                <div class="w-full">
                     <div class="bg-white rounded-lg p-8 shadow-sm h-full">
                         <h3 class="text-xl font-semibold text-gray-900 mb-8">{{ $category }}</h3>
                         <div class="space-y-6">
